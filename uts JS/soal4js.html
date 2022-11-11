@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Namahotel  :  Hotel Bighit  </h4>
+    <h4>Alamat     :  Jalan gangnam No.08, Kompleks seoul </h4>
+    <h4>Jkamar     :  50 kamar </h4>
+    <h4>Fasilitas  :  Free wifi, diskon 25% untuk pelanggan baru, kolang renang outdoor dan indoor </h4>
+    <h4>Klasifikasi:  B 6 </h4>
+    <div id="message" style="display: none; background: lightblue;">
+        Pemesanan Berhasil
+    </div>
+    <button id="btn-submit">Pesan Sekarang</button>
+    
+    <div id="pesan" style="display: none; background: red;">
+        Proses Pembatalan Berhasil
+    </div>
+    <button id="submit">Batal</button>
+    <script type="text/javascript">
+        const hotel = {
+                
+                boking: function () {
+                    const eventRegisterComplete = new Event('register-complete');
+                    const messageElement = document.getElementById('message');
+                    const btnSubmit = document.getElementById('btn-submit');
+                    document.addEventListener('register-complete', function (e) {
+                        messageElement.style.display = "flex";
+                    });
+                    btnSubmit.addEventListener('click', function (e) {
+                        document.dispatchEvent(eventRegisterComplete);
+                    });
+                },
+                batal: function () {
+                    const eventRegisterComplete = new Event('cancle-complete');
+                    const messageElement = document.getElementById('pesan');
+                    const btnSubmit = document.getElementById('submit');
+                    document.addEventListener('cancle-complete', function (e) {
+                        messageElement.style.display = "flex";
+                    });
+                    btnSubmit.addEventListener('click', function (e) {
+                        document.dispatchEvent(eventRegisterComplete);
+                    });
+
+                },
+            };
+            hotel.boking();
+            hotel.batal();
+    </script>
+    
+</body>
+</html>

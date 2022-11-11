@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>soal no 3</title>
+</head>
+<body>
+	<input type="text" id="nama" name="">
+	<button onclick="kirim()">Submit</button>
+
+	<div id="tampilkan"></div>
+
+</body>
+
+<script type="text/javascript">
+
+	var tamp = document.getElementById("tampilkan");
+	const waktu = new Date().getHours();
+	const menit = new Date().getMinutes();
+
+
+	function kirim() {
+		tamp.innerText = nama.value;
+		if (waktu >= 1 && waktu <= 11) {
+			tamp.innerText = "sekarang jam "+waktu +":"+menit+", Selamat Pagi " + nama.value;
+		}
+		else if (waktu >11 && waktu < 14){
+			tamp.innerText = "sekarang jam "+waktu +":"+menit+", Selamat Siang " + nama.value;
+		}
+		else if (waktu >= 14 && waktu <=19){
+			tamp.innerText ="sekarang jam "+waktu +":"+menit+", Selamat Sore " + nama.value;
+		}
+		else if(waktu >19 && waktu <=24){
+			tamp.innerText ="sekarang jam "+waktu +":"+menit+", Selamat Malam " + nama.value;
+		}
+	}
+	var nama = document.getElementById("nama");
+		
+
+	
+</script>
+</html> 
